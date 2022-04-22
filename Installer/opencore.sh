@@ -126,7 +126,7 @@ opencore_disable_gpudevice() {
   [ -n "${plists_getval}" ] && printfn "Some device configuration already present." && return 0
 
   local tmp_classcode_bin="tmp-class-code.bin"
-  base64 -D <<< "/////w==" > "${tmp_classcode_bin}"
+  base64 -d <<< "/////w==" > "${tmp_classcode_bin}"
   plists_import "${dev_properties}:${device}:class-code" "${tmp_classcode_bin}" "${pfile}"
   rm "${tmp_classcode_bin}"
 
